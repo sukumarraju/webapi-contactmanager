@@ -1,0 +1,15 @@
+﻿<div id="body">
+    <ul id="contacts"></ul>
+</div>
+
+@section scripts{
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.getJSON('/api/contacts', function (contactsJsonPayload) {
+            $(contactsJsonPayload).each(function (i, item) {
+                $('#contacts').append('<li>' + item.Name + '</li>');
+            });
+        });
+    });
+</script>
+}
